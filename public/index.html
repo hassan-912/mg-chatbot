@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MG Immigration Chatbot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">MG</div>
+          <div class="logo-text">
+            <h1>MG Immigration</h1>
+            <span>مساعد الهجرة الذكي</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>🌍 البرامج المتاحة</h3>
+        <div class="program-list" id="programList">
+          <button class="program-btn" data-query="عايز أعرف عن بطاقة الفرص في ألمانيا">🇩🇪 ألمانيا — Chancenkarte</button>
+          <button class="program-btn" data-query="عايز أعرف عن التدريب المهني في ألمانيا">🇩🇪 ألمانيا — Ausbildung</button>
+          <button class="program-btn" data-query="عايز أهاجر كندا">🇨🇦 كندا — هجرة الكفاءات</button>
+          <button class="program-btn" data-query="عايز فيزا سياحة كندا">🇨🇦 كندا — سياحة</button>
+          <button class="program-btn" data-query="عايز فيزا سياحة أمريكا">🇺🇸 أمريكا — B1/B2</button>
+          <button class="program-btn" data-query="عايز أهاجر أستراليا">🇦🇺 أستراليا — كفاءات</button>
+          <button class="program-btn" data-query="عايز أهاجر نيوزيلندا">🇳🇿 نيوزيلندا — Skilled</button>
+          <button class="program-btn" data-query="عايز فيزا شنجن سياحة">🇪🇺 شنجن — سياحة</button>
+          <button class="program-btn" data-query="عايز أدرس في إيطاليا">🇮🇹 إيطاليا — دراسة</button>
+          <button class="program-btn" data-query="عايز إقامة ديجيتال نوماد إسبانيا">🇪🇸 إسبانيا — Digital Nomad</button>
+          <button class="program-btn" data-query="عايز أعرف عن فيزا البرتغال D7">🇵🇹 البرتغال — D7</button>
+          <button class="program-btn" data-query="عايز فيزا بحث عن عمل النمسا">🇦🇹 النمسا — بحث عن عمل</button>
+          <button class="program-btn" data-query="عايز أدرس برا">🎓 فيزا الدراسة</button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="reset-btn" id="resetBtn">🔄 محادثة جديدة</button>
+        <p class="footer-note">Powered by Llama 3 + Groq</p>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="chat-area">
+      <header class="chat-header">
+        <div class="header-info">
+          <div class="avatar">
+            <span>🤖</span>
+          </div>
+          <div>
+            <h2>مساعد MG</h2>
+            <span class="status-indicator">
+              <span class="status-dot"></span>
+              متصل ومستعد
+            </span>
+          </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </header>
+
+      <div class="messages-container" id="messagesContainer">
+        <!-- Welcome message -->
+        <div class="message bot-message">
+          <div class="message-avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              أهلاً بيك يا فندم! 👋 منورنا في MG للهجرة.
+              <br><br>
+              أنا مساعد MG، وأقدر أساعدك في أي استفسار عن:
+              <br>
+              🇩🇪 ألمانيا • 🇨🇦 كندا • 🇺🇸 أمريكا • 🇦🇺 أستراليا • 🇳🇿 نيوزيلندا • 🇪🇺 أوروبا
+              <br><br>
+              اسألني أي سؤال أو اختار برنامج من القائمة! 💪
+            </div>
+            <span class="message-time">مساعد MG</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="quick-actions">
+          <button class="quick-btn" data-msg="عايز أسافر ألمانيا">🇩🇪 ألمانيا</button>
+          <button class="quick-btn" data-msg="عايز أهاجر كندا">🇨🇦 كندا</button>
+          <button class="quick-btn" data-msg="إيه البرامج المتاحة؟">📋 كل البرامج</button>
+          <button class="quick-btn" data-msg="عايز أحجز استشارة">📅 حجز استشارة</button>
+        </div>
+        <form class="message-form" id="messageForm">
+          <div class="input-wrapper">
+            <textarea 
+              id="messageInput" 
+              placeholder="اكتب سؤالك هنا... 💬"
+              rows="1"
+              maxlength="1000"
+            ></textarea>
+            <button type="submit" class="send-btn" id="sendBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
